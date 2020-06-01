@@ -1,0 +1,25 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+    margin: 0;
+}
+
+.formFieldWidth400 .mat-form-field-infix {
+    width: 400px;
+}
+
+.green-snackbar {
+    background: #21c83d;
+}
+
+.red-snackbar {
+    background: #d3213f;
+}
+
+.mat-snack-bar-container {
+    color: white;
+}
+
+.mat-simple-snackbar-action {
+    color: #ffffff;
+    font-weight: bold;
+}

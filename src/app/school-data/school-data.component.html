@@ -1,0 +1,88 @@
+<mat-card class="mat-elevation-z4">
+
+    <mat-card-actions align="end">
+        <h3 style="padding-left: 10px;"> <strong>You can manage school entries here</strong></h3>
+        <div fxFlex></div>
+        <button mat-raised-button (click)="openNewSchoolDialog()" color="primary">+ New School</button>
+    </mat-card-actions>
+
+    <div fxLayout="row">
+        <div class="mat-elevation-z3" style="width: 100%;">
+
+            <mat-form-field style="float: right; padding-right:10px; margin-top: 10px;">
+                <mat-label>Search</mat-label>
+                <span matPrefix>Look for : &nbsp;</span>
+                <input type="text" (keyup)="applyFilter($event)" matInput placeholder="type here to search...">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+
+            <table mat-table [dataSource]="dataSource">
+
+                <!-- Id Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> Id </th>
+                    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                </ng-container>
+
+                <!-- name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- street Column -->
+                <ng-container matColumnDef="street">
+                    <th mat-header-cell *matHeaderCellDef> Street </th>
+                    <td mat-cell *matCellDef="let element"> {{element.street}} </td>
+                </ng-container>
+
+                <!-- suburb Column -->
+                <ng-container matColumnDef="suburb">
+                    <th mat-header-cell *matHeaderCellDef> Suburb </th>
+                    <td mat-cell *matCellDef="let element"> {{element.suburb}} </td>
+                </ng-container>
+
+                <!-- postcode Column -->
+                <ng-container matColumnDef="postcode">
+                    <th mat-header-cell *matHeaderCellDef> Postcode </th>
+                    <td mat-cell *matCellDef="let element"> {{element.postcode}} </td>
+                </ng-container>
+
+                <!-- state Column -->
+                <ng-container matColumnDef="state">
+                    <th mat-header-cell *matHeaderCellDef> State </th>
+                    <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+                </ng-container>
+
+
+                <!-- student_count Column -->
+                <ng-container matColumnDef="student_count">
+                    <th mat-header-cell *matHeaderCellDef> Student Count </th>
+                    <td mat-cell *matCellDef="let element"> {{element.student_count}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button (click)="openEditSchoolDialog(element)" class="iconbutton" color="primary">
+                        <mat-icon aria-label="Edit">edit</mat-icon>
+                      </button>
+                        <button mat-icon-button (click)="openDeleteSchoolDialog(element)" class="iconbutton" color="warn">
+                        <mat-icon aria-label="Delete">delete</mat-icon>
+                      </button>
+                    </td>
+
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[10, 5, 15,25,50,100]" showFirstLastButtons></mat-paginator>
+        </div>
+
+
+    </div>
+
+</mat-card>

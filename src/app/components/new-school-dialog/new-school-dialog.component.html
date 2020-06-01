@@ -1,0 +1,42 @@
+<div style="width: 400px;">
+    <h2 mat-dialog-title>{{title}}</h2>
+
+    <mat-dialog-content [formGroup]="form">
+
+        <mat-form-field>
+            <input matInput required placeholder="Name of the school" #name formControlName="name">
+            <mat-error *ngIf="name.invalid">Required</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput required placeholder="Street" #street formControlName="street">
+            <mat-error *ngIf="street.invalid">Required</mat-error>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field>
+            <input matInput required placeholder="Suburb" formControlName="suburb">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <input matInput required placeholder="State" formControlName="state">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <input matInput required placeholder="Postcode" formControlName="postcode">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input type="number" min="1" max="45000" matInput required placeholder="Student Count" formControlName="student_count">
+        </mat-form-field>
+        <br>
+    </mat-dialog-content>
+
+    <mat-dialog-actions style="float: right;">
+        <button class="mat-raised-button" (click)="close()">Close</button> &nbsp; &nbsp;
+        <button [disabled]="!form.valid" class="mat-raised-button mat-primary" (click)="save()">Save</button>
+    </mat-dialog-actions>
+
+</div>

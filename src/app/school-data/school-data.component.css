@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+}
+
+table.mat-table {
+    display: table;
+}
+
+.green-snackbar {
+    background: #64dd17;
+}
